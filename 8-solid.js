@@ -1,40 +1,43 @@
 class Billing {
     #amount;
-    constructor(amount) {
-        this.#amount = amount
+    constructor() {
+        this.#amount = 1000
     }
     calculateTotal() {
-        return this.#amount * this.type()
+        return this.#amount
     }
 }
-
 class Fixed extends Billing {
-    type() {
-        return 1
-    }
+
 }
 class Hour extends Billing {
-    constructor(amount,hour) {
-        super(amount)
+    constructor(hour) {
+        super()
         this.hour = hour
     }
-    type() {
-        return this.hour
+    calculateTotal () {
+        return new Billing().calculateTotal() * this.hour
     }
 }
 class Item extends Billing {
-    constructor(amount, item) {
-        super(amount)
+    constructor(item) {
+        super()
         this.item = item
     }
-    type() {
-        if (Array.isArray(this.item)) {
-            return  this.item.reduce((acc, el) => acc + el)
-        } else {
-            return this.item
-        }
+    calculateTotal () {
+        return new Billing().calculateTotal() * this.item ? 
+        new Billing().calculateTotal() * this.item : 
+        new Billing().calculateTotal() * this.item.length
     }
 } 
+const bill = new Billing()
+bill.calculateTotal(); //1000
+const fixed = new Fixed()
+fixed.calculateTotal(); //1000
+const hour = new Hour(12)
+hour.calculateTotal(); // 12000
+const item = new Item([1,2,3,4,5])
+item.calculateTotal(); // 5000
 
 
 
