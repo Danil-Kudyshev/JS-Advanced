@@ -16,7 +16,7 @@ class Hour extends Billing {
         this.hour = hour
     }
     calculateTotal () {
-        return new Billing().calculateTotal() * this.hour
+        return super.calculateTotal() * this.hour
     }
 }
 class Item extends Billing {
@@ -25,9 +25,9 @@ class Item extends Billing {
         this.item = item
     }
     calculateTotal () {
-        return new Billing().calculateTotal() * this.item ? 
-        new Billing().calculateTotal() * this.item : 
-        new Billing().calculateTotal() * this.item.length
+        return super.calculateTotal() * this.item ? 
+        super.calculateTotal() * this.item : 
+        super.calculateTotal() * this.item.length
     }
 } 
 const bill = new Billing()
