@@ -1,0 +1,27 @@
+{
+  "name": "15-build",
+  "version": "1.0.0",
+  "description": "Homework JS Advanced",
+  "main": "main.js",
+  "type": "module",
+  "scripts": {
+    "build": "rollup main.js --file bundle.js --format iife",
+    "start": "live-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Danil-Kudyshev/JS-Advanced.git"
+  },
+  "keywords": [
+    "Homework"
+  ],
+  "author": "Kudeshev Danil",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Danil-Kudyshev/JS-Advanced/issues"
+  },
+  "homepage": "https://github.com/Danil-Kudyshev/JS-Advanced#readme",
+  "devDependencies": {
+    "rollup": "^4.20.0"
+  }
+}
